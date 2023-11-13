@@ -191,8 +191,8 @@ zh-HK:
       sensitized: 已標記為敏感內容
       shared_inbox_url: 公共收件箱（Shared Inbox）URL
       show:
-        created_reports: 舉報紀錄
-        targeted_reports: 被其他人舉報的紀錄
+        created_reports: 投訴紀錄
+        targeted_reports: 被其他人投訴的紀錄
       silence: 靜音
       silenced: 已靜音
       statuses: 文章
@@ -215,7 +215,7 @@ zh-HK:
       whitelisted: 容許互傳文章
     action_logs:
       action_types:
-        assigned_to_self_report: 指派舉報
+        assigned_to_self_report: 指派投訴
         change_email_user: 更改使用者的電郵
         confirm_user: 確認使用者
         create_account_warning: 新增警告
@@ -245,13 +245,13 @@ zh-HK:
         memorialize_account: 把帳號設定為悼念帳號
         promote_user: 提升帳號權限
         remove_avatar_user: 刪除頭像
-        reopen_report: 重開舉報個案
+        reopen_report: 重開投訴個案
         reset_password_user: 重設密碼
-        resolve_report: 解決舉報個案
+        resolve_report: 解決投訴個案
         sensitive_account: 把你的帳號的媒體設定為敏感內容
         silence_account: 把帳號靜音
         suspend_account: 把帳號停權
-        unassigned_report: 取消指派舉報
+        unassigned_report: 取消指派投訴
         unsensitive_account: 取消把你帳號的媒體設定為敏感內容
         unsilence_account: 取消帳號的靜音狀態
         unsuspend_account: 取消帳號的停權狀態
@@ -260,7 +260,7 @@ zh-HK:
         update_domain_block: 更新域名阻隔
         update_status: 更新文章
       actions:
-        assigned_to_self_report_html: "%{name} 指派了 %{target} 的檢舉給自己"
+        assigned_to_self_report_html: "%{name} 指派了 %{target} 的投訴給自己"
         change_email_user_html: "%{name} 更改了使用者 %{target} 的 e-mail 地址"
         confirm_user_html: "%{name} 已確認使用者 %{target} 的 e-mail 地址"
         create_account_warning_html: "%{name} 已警告了 %{target}"
@@ -290,13 +290,13 @@ zh-HK:
         memorialize_account_html: "%{name} 把 %{target} 設定為追悼帳號"
         promote_user_html: "%{name} 提升了使用者 %{target} 的權限"
         remove_avatar_user_html: "%{name} 移除了 %{target} 的大頭貼"
-        reopen_report_html: "%{name} 重新開啟 %{target} 的檢舉案例"
+        reopen_report_html: "%{name} 重新開啟 %{target} 的投訴案例"
         reset_password_user_html: "%{name} 重設了使用者 %{target} 的密碼"
-        resolve_report_html: "%{name} 處理了 %{target} 的檢舉案例"
+        resolve_report_html: "%{name} 處理了 %{target} 的投訴案例"
         sensitive_account_html: "%{name} 將 %{target} 的媒體標記為敏感內容"
         silence_account_html: "%{name} 限制了帳號 %{target}"
         suspend_account_html: "%{name} 將帳號 %{target} 停權"
-        unassigned_report_html: "%{name} 取消指派 %{target} 的檢舉"
+        unassigned_report_html: "%{name} 取消指派 %{target} 的投訴"
         unsensitive_account_html: "%{name} 將 %{target} 的媒體取消標記為敏感內容"
         unsilence_account_html: "%{name} 取消了用戶 %{target} 的限制狀態"
         unsuspend_account_html: "%{name} 將帳號 %{target} 解除停權"
@@ -391,8 +391,8 @@ zh-HK:
       public_comment_hint: 如果你已經啟用域名限制列表的公告，請為一般大眾提供更多有關此域名限制的資訊。
       reject_media: 拒絕媒體檔案
       reject_media_hint: 刪除本地緩存的媒體檔案，再也不在未來下載這個站點的檔案。和自動刪除無關
-      reject_reports: 拒絕檢舉個案
-      reject_reports_hint: 忽略所有來自此站點的檢舉。與停權無關
+      reject_reports: 拒絕投訴個案
+      reject_reports_hint: 忽略所有來自此站點的投訴。與停權無關
       undo: 撤銷域名阻隔
       view: 顯示正被阻隔的網域
     email_domain_blocks:
@@ -437,7 +437,7 @@ zh-HK:
       total_blocked_by_us: 被我們封鎖
       total_followed_by_them: 被他們關注
       total_followed_by_us: 被我們關注
-      total_reported: 關於他們的舉報
+      total_reported: 關於他們的投訴
       total_storage: 媒體附件
     invites:
       deactivate_all: 全部停用
@@ -481,8 +481,8 @@ zh-HK:
       status: 狀態
       title: 中繼
     report_notes:
-      created_msg: 舉報備註已建立！
-      destroyed_msg: 舉報備註已刪除！
+      created_msg: 投訴備註已建立！
+      destroyed_msg: 投訴備註已刪除！
     reports:
       account:
         notes:
@@ -491,7 +491,7 @@ zh-HK:
       are_you_sure: 你確認嗎？
       assign_to_self: 指派給自己
       assigned: 指派版主
-      by_target_domain: 被舉報帳號的域名
+      by_target_domain: 被投訴帳號的域名
       comment:
         none: 沒有
       created_at: 日期
@@ -505,15 +505,15 @@ zh-HK:
         create_and_unresolve: 標示為「未處理」並留下備註
         delete: 刪除
         placeholder: 記錄已執行的動作，或其他相關的更新……
-      reopen: 重開舉報個案
-      report: '舉報 #%{id}'
-      reported_account: 舉報用戶
-      reported_by: 舉報者
+      reopen: 重開投訴個案
+      report: '投訴 #%{id}'
+      reported_account: 投訴用戶
+      reported_by: 投訴者
       resolved: 已處理
-      resolved_msg: 舉報個案已被處理！
+      resolved_msg: 投訴個案已被處理！
       status: 狀態
-      target_origin: 被檢舉帳號來源
-      title: 舉報
+      target_origin: 被投訴帳號來源
+      title: 投訴
       unassign: 取消指派
       unresolved: 未處理
       updated_at: 更新
@@ -647,9 +647,9 @@ zh-HK:
       body: 以下是新帳戶的資訊。你可以審核這項申請。
       subject: 在 %{instance} 上未審核的新用戶(%{username})
     new_report:
-      body: "%{reporter} 舉報了 %{target}"
-      body_remote: 來自 %{domain} 的人舉報了 %{target}
-      subject: 針對 %{instance} 的舉報（#%{id}）
+      body: "%{reporter} 投訴了 %{target}"
+      body_remote: 來自 %{domain} 的人投訴了 %{target}
+      subject: 針對 %{instance} 的投訴（#%{id}）
   aliases:
     add_new: 建立別名 (Alias)
     created_msg: 成功建立別名 (alias)。你可以從舊帳號開始轉移。

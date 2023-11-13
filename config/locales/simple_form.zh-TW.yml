@@ -10,7 +10,7 @@ zh-TW:
         text: 您可使用嘟文語法，例如網址、「#」標籤和提及功能
         title: 可選。不會向收件者顯示
       admin_account_action:
-        include_statuses: 使用者可看到導致檢舉或警告的嘟文
+        include_statuses: 使用者可看到導致投訴或警告的嘟文
         send_email_notification: 使用者將收到帳號發生之事情的解釋
         text_html: 選用。您能使用嘟文語法。您可 <a href="%{path}">新增警告預設</a> 來節省時間
         type_html: 設定要使用 <strong>%{acct}</strong> 做的事
@@ -104,7 +104,7 @@ zh-TW:
         text: 預設文字
         title: 標題
       admin_account_action:
-        include_statuses: 在電子郵件中加入檢舉的嘟文
+        include_statuses: 在電子郵件中加入投訴的嘟文
         send_email_notification: 透過電子信件通知使用者
         text: 自訂警告
         type: 動作

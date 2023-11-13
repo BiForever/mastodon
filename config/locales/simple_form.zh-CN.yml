@@ -104,7 +104,7 @@ zh-CN:
         text: 预置文本
         title: 标题
       admin_account_action:
-        include_statuses: 在电子邮件中包括已举报的嘟文
+        include_statuses: 在电子邮件中包括已投诉的嘟文
         send_email_notification: 通过邮件提醒此用户
         text: 内容警告
         type: 动作
@@ -210,7 +210,7 @@ zh-CN:
         mention: 当有用户在嘟文中提及我时，发送电子邮件提醒我
         pending_account: 在有账号需要审核时，发送电子邮件提醒我
         reblog: 当有用户转嘟了我的嘟文时，发送电子邮件提醒我
-        report: 新举报已提交
+        report: 新投诉已提交
         trending_tag: 新热门待审核
       rule:
         text: 规则

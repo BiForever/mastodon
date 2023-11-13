@@ -10,7 +10,7 @@ zh-HK:
         text: 你可使用 toot 格式，例如網址、「#」標籤和提及功能
         title: 可選，接收者不會見到
       admin_account_action:
-        include_statuses: 使用者將會看到哪些文章導致檢舉或警告
+        include_statuses: 使用者將會看到哪些文章導致投訴或警告
         send_email_notification: 使用者將收到帳戶發生之事情的解釋
         text_html: 選用。你能使用 toot 語法。你可 <a href="%{path}">新增警告預設</a> 來節省時間
         type_html: 設定要使用 <strong>%{acct}</strong> 做的事
@@ -99,7 +99,7 @@ zh-HK:
         text: 預設文字
         title: 標題
       admin_account_action:
-        include_statuses: 在電郵中加入被檢舉的文章
+        include_statuses: 在電郵中加入被投訴的文章
         send_email_notification: 透過電子信件通知使用者
         text: 自訂警告
         type: 操作

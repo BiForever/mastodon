@@ -198,8 +198,8 @@ zh-CN:
       sensitized: 已标记为敏感内容
       shared_inbox_url: 公用收件箱（Shared Inbox）URL
       show:
-        created_reports: 这个帐户提交的举报
-        targeted_reports: 针对这个帐户的举报
+        created_reports: 这个帐户提交的投诉
+        targeted_reports: 针对这个帐户的投诉
       silence: 隐藏
       silenced: 已隐藏
       statuses: 嘟文
@@ -228,7 +228,7 @@ zh-CN:
       action_types:
         approve_appeal: 批准申诉
         approve_user: 批准用户
-        assigned_to_self_report: 指派举报
+        assigned_to_self_report: 指派投诉
         change_email_user: 为用户修改邮箱地址
         confirm_user: 确认用户
         create_account_warning: 创建警告
@@ -261,13 +261,13 @@ zh-CN:
         reject_appeal: 驳回申诉
         reject_user: 拒绝用户
         remove_avatar_user: 移除头像
-        reopen_report: 重开举报
+        reopen_report: 重开投诉
         reset_password_user: 重置密码
-        resolve_report: 处理举报
+        resolve_report: 处理投诉
         sensitive_account: 将你账号中的媒体标记为敏感内容
         silence_account: 隐藏用户
         suspend_account: 封禁用户
-        unassigned_report: 取消举报的指派
+        unassigned_report: 取消投诉的指派
         unblock_email_account: 取消屏蔽邮件地址
         unsensitive_account: 去除你账号中媒体的敏感内容标记
         unsilence_account: 解除账号隐藏
@@ -279,7 +279,7 @@ zh-CN:
       actions:
         approve_appeal_html: "%{name} 批准了 %{target} 对审核结果的申诉"
         approve_user_html: "%{name} 批准了用户 %{target} 的注册"
-        assigned_to_self_report_html: "%{name} 接管了举报 %{target}"
+        assigned_to_self_report_html: "%{name} 接管了投诉 %{target}"
         change_email_user_html: "%{name} 更改了用户 %{target} 的电子邮件地址"
         confirm_user_html: "%{name} 确认了用户 %{target} 的电子邮件地址"
         create_account_warning_html: "%{name} 向 %{target} 发送了警告"
@@ -312,13 +312,13 @@ zh-CN:
         reject_appeal_html: "%{name} 驳回了 %{target} 对审核结果的申诉"
         reject_user_html: "%{name} 拒绝了用户 %{target} 的注册"
         remove_avatar_user_html: "%{name} 删除了 %{target} 的头像"
-        reopen_report_html: "%{name} 重开了举报 %{target}"
+        reopen_report_html: "%{name} 重开了投诉 %{target}"
         reset_password_user_html: "%{name} 重置了用户 %{target} 的密码"
-        resolve_report_html: "%{name} 处理了举报 %{target}"
+        resolve_report_html: "%{name} 处理了投诉 %{target}"
         sensitive_account_html: "%{name} 将 %{target} 的媒体标记为敏感内容"
         silence_account_html: "%{name} 隐藏了用户 %{target}"
         suspend_account_html: "%{name} 封禁了用户 %{target}"
-        unassigned_report_html: "%{name} 放弃接管举报 %{target}"
+        unassigned_report_html: "%{name} 放弃接管投诉 %{target}"
         unblock_email_account_html: "%{name} 取消屏蔽了 %{target} 的邮件地址"
         unsensitive_account_html: "%{name} 去除了 %{target} 的媒体的敏感内容标记"
         unsilence_account_html: "%{name} 解除了用户 %{target} 的隐藏状态"
@@ -387,16 +387,16 @@ zh-CN:
       interactions: 互动数
       media_storage: 媒体存储
       new_users: 新用户
-      opened_reports: 收到的举报
+      opened_reports: 收到的投诉
       pending_appeals_html:
         other: "<strong>%{count}</strong> 个待处理申诉"
       pending_reports_html:
-        other: "<strong>%{count}</strong> 个待处理举报"
+        other: "<strong>%{count}</strong> 个待处理投诉"
       pending_tags_html:
         other: "<strong>%{count}</strong> 个待处理话题标签"
       pending_users_html:
         other: "<strong>%{count}</strong> 个待处理用户"
-      resolved_reports: 已解决的举报
+      resolved_reports: 已解决的投诉
       software: 软件
       sources: 注册来源
       space: 存储使用情况
@@ -437,8 +437,8 @@ zh-CN:
       public_comment_hint: 给这一域名限制添加公开的评论，如果你推广你的域名限制列表的话，这些评论就会显示出来。
       reject_media: 拒绝接收媒体文件
       reject_media_hint: 删除本站已缓存的媒体文件，并且不再接收来自该域名的任何媒体文件。此选项不影响封禁
-      reject_reports: 拒绝接收举报
-      reject_reports_hint: 忽略来自此域名的所有举报。这和封禁无关。
+      reject_reports: 拒绝接收投诉
+      reject_reports_hint: 忽略来自此域名的所有投诉。这和封禁无关。
       undo: 撤销屏蔽域名
       view: 查看域名屏蔽
     email_domain_blocks:
@@ -487,7 +487,7 @@ zh-CN:
         description_html: 你可以设置应用于此域名所有账号和其所有子域名的内容策略。
         policies:
           reject_media: 拒收媒体
-          reject_reports: 拒收举报
+          reject_reports: 拒收投诉
           silence: 隐藏
           suspend: 封禁
         policy: 策略
@@ -500,7 +500,7 @@ zh-CN:
         instance_follows_measure: 对方关注者
         instance_languages_dimension: 语言排行
         instance_media_attachments_measure: 存储的媒体文件
-        instance_reports_measure: 关于对方的举报
+        instance_reports_measure: 关于对方的投诉
         instance_statuses_measure: 存储的嘟文
       delivery:
         all: 全部
@@ -528,7 +528,7 @@ zh-CN:
       total_blocked_by_us: 被我站屏蔽的
       total_followed_by_them: 被对方关注的
       total_followed_by_us: 被我站关注的
-      total_reported: 关于对方的举报
+      total_reported: 关于对方的投诉
       total_storage: 媒体文件
       totals_time_period_hint_html: 下方显示的总数来自全部历史数据。
     invites:
@@ -573,8 +573,8 @@ zh-CN:
       status: 状态
       title: 中继站
     report_notes:
-      created_msg: 举报记录建立成功！
-      destroyed_msg: 举报记录删除成功！
+      created_msg: 投诉记录建立成功！
+      destroyed_msg: 投诉记录删除成功！
       today_at: 今天 %{time}
     reports:
       account:
@@ -583,27 +583,27 @@ zh-CN:
       action_log: 审计日志
       action_taken_by: 操作执行者
       actions:
-        delete_description_html: 被举报的嘟文将被删除，同时该账号将被标记一次处罚，以供未来同一账号再次违规时参考。
-        mark_as_sensitive_description_html: 被举报的嘟文将被标记为敏感，同时该账号将被标记一次处罚，以供未来同一账号再次违规时参考。
-        other_description_html: 查看更多控制该账号行为的选项，并自定义编写与被举报账号的通信。
-        resolve_description_html: 不会对被举报账号采取任何动作，举报将被关闭，也不会留下处罚记录。
+        delete_description_html: 被投诉的嘟文将被删除，同时该账号将被标记一次处罚，以供未来同一账号再次违规时参考。
+        mark_as_sensitive_description_html: 被投诉的嘟文将被标记为敏感，同时该账号将被标记一次处罚，以供未来同一账号再次违规时参考。
+        other_description_html: 查看更多控制该账号行为的选项，并自定义编写与被投诉账号的通信。
+        resolve_description_html: 不会对被投诉账号采取任何动作，投诉将被关闭，也不会留下处罚记录。
         silence_description_html: 只有关注或手工搜索此账号才能查看其资料，将严重限制其触达范围。可随时撤销。
         suspend_description_html: 此账号及其内容将无法访问，并最终被删除。也无法与该账号交互。可在30天内撤销。
-      actions_description_html: 决定采取何种措施处理此举报。如果对被举报账号采取惩罚性措施，将向其发送一封电子邮件通知。但若选中<strong>垃圾信息</strong>类别则不会发送通知。
-      add_to_report: 增加更多举报内容
+      actions_description_html: 决定采取何种措施处理此投诉。如果对被投诉账号采取惩罚性措施，将向其发送一封电子邮件通知。但若选中<strong>垃圾信息</strong>类别则不会发送通知。
+      add_to_report: 增加更多投诉内容
       are_you_sure: 你确定吗？
       assign_to_self: 接管
       assigned: 已接管的监察员
-      by_target_domain: 被举报账户的域名
+      by_target_domain: 被投诉账户的域名
       category: 类别
-      category_description_html: 在与被举报账户的通信时，将引用该账号和/或内容被举报的原因
+      category_description_html: 在与被投诉账户的通信时，将引用该账号和/或内容被投诉的原因
       comment:
         none: 没有
       comment_description_html: "%{name} 补充道："
-      created_at: 举报时间
+      created_at: 投诉时间
       delete_and_resolve: 删除嘟文
       forwarded: 已转发
-      forwarded_to: 转发举报至 %{domain}
+      forwarded_to: 转发投诉至 %{domain}
       mark_as_resolved: 标记为“已处理”
       mark_as_sensitive: 标记为敏感内容
       mark_as_unresolved: 标记为“未处理”
@@ -616,20 +616,20 @@ zh-CN:
         placeholder: 描述已经执行的操作，或其他任何相关的跟进情况…
         title: 备注
       notes_description_html: 查看备注或向其他监察员留言
-      quick_actions_description_html: 快捷选择操作或向下滚动以查看举报内容：
+      quick_actions_description_html: 快捷选择操作或向下滚动以查看投诉内容：
       remote_user_placeholder: 来自 %{instance} 的远程实例用户
-      reopen: 重开举报
-      report: '举报 #%{id}'
-      reported_account: 举报用户
-      reported_by: 举报人
+      reopen: 重开投诉
+      report: '投诉 #%{id}'
+      reported_account: 投诉用户
+      reported_by: 投诉人
       resolved: 已处理
-      resolved_msg: 举报处理成功！
+      resolved_msg: 投诉处理成功！
       skip_to_actions: 跳转到操作
       status: 状态
-      statuses: 被举报内容
+      statuses: 被投诉内容
       statuses_description_html: 在与该账号的通信中将引用违规内容
-      target_origin: 被举报账号的来源
-      title: 举报
+      target_origin: 被投诉账号的来源
+      title: 投诉
       unassign: 取消接管
       unresolved: 未处理
       updated_at: 更新时间
@@ -735,10 +735,10 @@ zh-CN:
       destroyed_msg: 站点上传的文件已经成功删除！
     statuses:
       back_to_account: 返回帐户信息页
-      back_to_report: 返回举报页
+      back_to_report: 返回投诉页
       batch:
         remove_from_report: 从报告中移除
-        report: 举报
+        report: 投诉
       deleted: 已删除
       media:
         title: 媒体文件
@@ -851,9 +851,9 @@ zh-CN:
       body: 新帐户的详细信息如下。你可以批准或拒绝此申请。
       subject: 在 %{instance} 上有新账号 (%{username}) 需要审核
     new_report:
-      body: "%{reporter} 举报了用户 %{target}"
-      body_remote: 来自 %{domain} 的用户举报了用户 %{target}
-      subject: 来自 %{instance} 的用户举报（#%{id}）
+      body: "%{reporter} 投诉了用户 %{target}"
+      body_remote: 来自 %{domain} 的用户投诉了用户 %{target}
+      subject: 来自 %{instance} 的用户投诉（#%{id}）
     new_trends:
       body: 以下项目需要审核才能公开显示：
       new_trending_links:
@@ -1020,7 +1020,7 @@ zh-CN:
       appeals:
         submit: 提交申诉
       approve_appeal: 批准申诉
-      associated_report: 相关举报
+      associated_report: 相关投诉
       created_at: 日期
       description_html: 这些是针对您的帐户采取的行动和警告，已经由 %{instance} 的工作人员发送给您。
       recipient: 发送至

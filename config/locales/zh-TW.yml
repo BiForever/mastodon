@@ -196,8 +196,8 @@ zh-TW:
       sensitized: 已標記為敏感內容
       shared_inbox_url: 共享收件箱網址
       show:
-        created_reports: 建立檢舉
-        targeted_reports: 由其他人檢舉
+        created_reports: 建立投訴
+        targeted_reports: 由其他人投訴
       silence: 靜音
       silenced: 已靜音
       statuses: 嘟文
@@ -259,13 +259,13 @@ zh-TW:
         reject_appeal: 駁回申訴
         reject_user: 回絕使用者
         remove_avatar_user: 刪除大頭貼
-        reopen_report: 重開舉報
+        reopen_report: 重開投訴
         reset_password_user: 重設密碼
-        resolve_report: 消除舉報
+        resolve_report: 消除投訴
         sensitive_account: 把您的帳號的媒體標記為敏感內容
         silence_account: 靜音帳號
         suspend_account: 停權帳號
-        unassigned_report: 取消指派舉報
+        unassigned_report: 取消指派投訴
         unblock_email_account: 解除封鎖電子郵件地址
         unsensitive_account: 取消把您的帳號的媒體設定為敏感內容
         unsilence_account: 取消帳號的靜音狀態
@@ -310,13 +310,13 @@ zh-TW:
         reject_appeal_html: "%{name} 回絕了來自 %{target} 的審核決定申訴"
         reject_user_html: "%{name} 回絕了從 %{target} 而來的註冊"
         remove_avatar_user_html: "%{name} 移除了 %{target} 的大頭貼"
-        reopen_report_html: "%{name} 重新開啟 %{target} 的檢舉"
+        reopen_report_html: "%{name} 重新開啟 %{target} 的投訴"
         reset_password_user_html: "%{name} 重新設定了使用者 %{target} 的密碼"
-        resolve_report_html: "%{name} 處理了 %{target} 的檢舉"
+        resolve_report_html: "%{name} 處理了 %{target} 的投訴"
         sensitive_account_html: "%{name} 將 %{target} 的媒體檔案標記為敏感內容"
         silence_account_html: "%{name} 靜音了使用者 %{target}"
         suspend_account_html: "%{name} 停權了使用者 %{target}"
-        unassigned_report_html: "%{name} 取消指派 %{target} 的檢舉"
+        unassigned_report_html: "%{name} 取消指派 %{target} 的投訴"
         unblock_email_account_html: "%{name} 解除封鎖了 %{target} 的電子郵件地址"
         unsensitive_account_html: "%{name} 將 %{target} 的媒體檔案的敏感狀態取消"
         unsilence_account_html: "%{name} 取消了使用者 %{target} 的靜音狀態"
@@ -435,8 +435,8 @@ zh-TW:
       public_comment_hint: 如果您已經啟用站台限制列表的公告，請為一般大眾提供更多有關此站台限制的資訊。
       reject_media: 拒絕媒體檔案
       reject_media_hint: 刪除本地快取的媒體檔案，並且不再接收來自該站點的任何媒體檔案。與停權無關
-      reject_reports: 拒絕檢舉
-      reject_reports_hint: 忽略所有來自此站點的檢舉。與停權無關
+      reject_reports: 拒絕投訴
+      reject_reports_hint: 忽略所有來自此站點的投訴。與停權無關
       undo: 復原欲封鎖域名
       view: 顯示阻擋的網域
     email_domain_blocks:
@@ -487,7 +487,7 @@ zh-TW:
         description_html: 您可以定義對所有此網域帳號及其子網域所實施之內容政策。
         policies:
           reject_media: 拒絕多媒體
-          reject_reports: 拒絕檢舉
+          reject_reports: 拒絕投訴
           silence: 限制
           suspend: 停權
         policy: 政策
@@ -500,7 +500,7 @@ zh-TW:
         instance_follows_measure: 他們這邊的跟隨者
         instance_languages_dimension: 熱門語言
         instance_media_attachments_measure: 已儲存多媒體附加檔案
-        instance_reports_measure: 關於他們的檢舉報告
+        instance_reports_measure: 關於他們的投訴報告
         instance_statuses_measure: 已儲存嘟文
       delivery:
         all: 所有
@@ -528,7 +528,7 @@ zh-TW:
       total_blocked_by_us: 被我們封鎖
       total_followed_by_them: 被他們跟隨
       total_followed_by_us: 被我們跟隨
-      total_reported: 關於他們的舉報
+      total_reported: 關於他們的投訴
       total_storage: 多媒體附檔
       totals_time_period_hint_html: 以下顯示之總和包含所有時間的資料。
     invites:
@@ -573,8 +573,8 @@ zh-TW:
       status: 狀態
       title: 中繼
     report_notes:
-      created_msg: 檢舉記錄建立成功!
-      destroyed_msg: 檢舉記錄刪除成功!
+      created_msg: 投訴記錄建立成功!
+      destroyed_msg: 投訴記錄刪除成功!
       today_at: 今日為 %{time}
     reports:
       account:
@@ -583,20 +583,20 @@ zh-TW:
       action_log: 審計日誌
       action_taken_by: 操作執行者
       actions:
-        delete_description_html: 被檢舉的嘟文將被刪除，並且會被以刪除線標記，幫助您升級同一帳號未來的違規行為。
-        mark_as_sensitive_description_html: 被檢舉的嘟文中的媒體將會被標記為敏感，並將會記錄一次警告，以協助您升級同一帳號未來的違規行為。
-        other_description_html: 檢視更多控制帳號行為以及自訂檢舉帳號通知之選項。
-        resolve_description_html: 被檢舉的帳號將不被採取任何行動，不會加以刪除線標記，並且此份報告將被關閉。
+        delete_description_html: 被投訴的嘟文將被刪除，並且會被以刪除線標記，幫助您升級同一帳號未來的違規行為。
+        mark_as_sensitive_description_html: 被投訴的嘟文中的媒體將會被標記為敏感，並將會記錄一次警告，以協助您升級同一帳號未來的違規行為。
+        other_description_html: 檢視更多控制帳號行為以及自訂投訴帳號通知之選項。
+        resolve_description_html: 被投訴的帳號將不被採取任何行動，不會加以刪除線標記，並且此份報告將被關閉。
         silence_description_html: 個人頁面僅會對已跟隨帳號之使用者或手動查詢可見，將大幅度限制觸及範圍。此設定可隨時被還原。
         suspend_description_html: 個人頁面及其內容將無法被存取，直到其最終被刪除。將無法與此帳號互動。此設定 30 日內可被還原。
-      actions_description_html: 決定應對此報告採取何種行動。若您對檢舉之帳號採取懲罰措施，則將對他們發送 e-mail 通知，如非選擇了 <strong>垃圾郵件</strong> 類別。
+      actions_description_html: 決定應對此報告採取何種行動。若您對投訴之帳號採取懲罰措施，則將對他們發送 e-mail 通知，如非選擇了 <strong>垃圾郵件</strong> 類別。
       add_to_report: 加入更多至報告
       are_you_sure: 您確定嗎?
       assign_to_self: 指派給自己
       assigned: 指派負責人
-      by_target_domain: 檢舉帳號之網域
+      by_target_domain: 投訴帳號之網域
       category: 分類
-      category_description_html: 此帳號及/或被檢舉內容之原因會被引用在檢舉帳號通知中
+      category_description_html: 此帳號及/或被投訴內容之原因會被引用在投訴帳號通知中
       comment:
         none: 無
       comment_description_html: 提供更多資訊，%{name} 寫道：
@@ -616,20 +616,20 @@ zh-TW:
         placeholder: 記錄已執行的動作，或其他相關的更新...
         title: 註記
       notes_description_html: 檢視及留下些給其他管理員和未來的自己的註記
-      quick_actions_description_html: 採取一個快速行動，或者下捲以檢視檢舉內容：
+      quick_actions_description_html: 採取一個快速行動，或者下捲以檢視投訴內容：
       remote_user_placeholder: 來自 %{instance} 之遠端使用者
-      reopen: 重開檢舉
-      report: '檢舉 #%{id}'
-      reported_account: 被檢舉使用者
-      reported_by: 檢舉人
+      reopen: 重開投訴
+      report: '投訴 #%{id}'
+      reported_account: 被投訴使用者
+      reported_by: 投訴人
       resolved: 已解決
-      resolved_msg: 檢舉已處理!
+      resolved_msg: 投訴已處理!
       skip_to_actions: 跳過行動
       status: 嘟文
-      statuses: 被檢舉的內容
-      statuses_description_html: 侵犯性違規內容會被引用在檢舉帳號通知中
-      target_origin: 檢舉帳號之來源
-      title: 檢舉
+      statuses: 被投訴的內容
+      statuses_description_html: 侵犯性違規內容會被引用在投訴帳號通知中
+      target_origin: 投訴帳號之來源
+      title: 投訴
       unassign: 取消指派
       unresolved: 未解決
       updated_at: 更新
@@ -735,10 +735,10 @@ zh-TW:
       destroyed_msg: 成功刪除站台的上傳項目！
     statuses:
       back_to_account: 返回帳號訊息頁
-      back_to_report: 回到檢舉報告頁面
+      back_to_report: 回到投訴報告頁面
       batch:
-        remove_from_report: 從檢舉報告中移除
-        report: 檢舉報告
+        remove_from_report: 從投訴報告中移除
+        report: 投訴報告
       deleted: 已刪除
       media:
         title: 媒體檔案
@@ -851,9 +851,9 @@ zh-TW:
       body: 以下是新帳號的詳細資訊。您可以同意或拒絕這項申請。
       subject: "%{instance} 上有新帳號 (%{username}) 待審核"
     new_report:
-      body: "%{reporter} 檢舉了使用者 %{target}"
-      body_remote: 來自 %{domain} 的使用者檢舉了使用者 %{target}
-      subject: 來自 %{instance} 的使用者檢舉（#%{id}）
+      body: "%{reporter} 投訴了使用者 %{target}"
+      body_remote: 來自 %{domain} 的使用者投訴了使用者 %{target}
+      subject: 來自 %{instance} 的使用者投訴（#%{id}）
     new_trends:
       body: 以下項目需要經過審核才能公開顯示：
       new_trending_links:
