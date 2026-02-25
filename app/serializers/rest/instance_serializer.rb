@@ -61,7 +61,7 @@ class REST::InstanceSerializer < ActiveModel::Serializer
         status: object.status_page_url,
         about: about_url,
         privacy_policy: privacy_policy_url,
-        terms_of_service: TermsOfService.live.exists? ? terms_of_service_url : nil,
+        terms_of_service: TermsOfService.current.present? ? terms_of_service_url : nil,
       },
 
       vapid: {
@@ -98,6 +98,21 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
       translation: {
         enabled: TranslationService.configured?,
+      },
+
+      timelines_access: {
+        live_feeds: {
+          local: Setting.local_live_feed_access,
+          remote: Setting.remote_live_feed_access,
+        },
+        hashtag_feeds: {
+          local: Setting.local_topic_feed_access,
+          remote: Setting.remote_topic_feed_access,
+        },
+        trending_link_feeds: {
+          local: Setting.local_topic_feed_access,
+          remote: Setting.remote_topic_feed_access,
+        },
       },
 
       limited_federation: limited_federation?,

@@ -70,6 +70,10 @@ module JsonLdHelper
     !json.nil? && equals_or_includes?(json['@context'], ActivityPub::TagManager::CONTEXT)
   end
 
+  def supported_security_context?(json)
+    !json.nil? && equals_or_includes?(json['@context'], 'https://w3id.org/security/v1')
+  end
+
   def unsupported_uri_scheme?(uri)
     uri.nil? || !uri.start_with?('http://', 'https://')
   end
@@ -134,7 +138,7 @@ module JsonLdHelper
         patch_for_forwarding!(value, compacted_value)
       elsif value.is_a?(Array)
         compacted_value = [compacted_value] unless compacted_value.is_a?(Array)
-        return if value.size != compacted_value.size
+        return nil if value.size != compacted_value.size
 
         compacted[key] = value.zip(compacted_value).map do |v, vc|
           if v.is_a?(Hash) && vc.is_a?(Hash)

@@ -35,8 +35,14 @@ import { Search } from 'mastodon/features/compose/components/search';
 import { ColumnLink } from 'mastodon/features/ui/components/column_link';
 import { useBreakpoint } from 'mastodon/features/ui/hooks/useBreakpoint';
 import { useIdentity } from 'mastodon/identity_context';
-import { timelinePreview, trendsEnabled, me } from 'mastodon/initial_state';
+import {
+  localLiveFeedAccess,
+  remoteLiveFeedAccess,
+  trendsEnabled,
+  me,
+} from 'mastodon/initial_state';
 import { transientSingleColumn } from 'mastodon/is_mobile';
+import { canViewFeed } from 'mastodon/permissions';
 import { selectUnreadNotificationGroupsCount } from 'mastodon/selectors/notifications';
 import { useAppSelector, useAppDispatch } from 'mastodon/store';
 
@@ -55,6 +61,10 @@ const messages = defineMessages({
   },
   explore: { id: 'explore.title', defaultMessage: 'Trending' },
   firehose: { id: 'column.firehose', defaultMessage: 'Live feeds' },
+  firehose_singular: {
+    id: 'column.firehose_singular',
+    defaultMessage: 'Live feed',
+  },
   direct: { id: 'navigation_bar.direct', defaultMessage: 'Private mentions' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favorites' },
   bookmarks: { id: 'navigation_bar.bookmarks', defaultMessage: 'Bookmarks' },
@@ -185,13 +195,179 @@ const isFirehoseActive = (
 
 const MENU_WIDTH = 284;
 
-export const NavigationPanel: React.FC = () => {
+export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
+  multiColumn = false,
+}) => {
   const intl = useIntl();
-  const { signedIn, disabledAccountId } = useIdentity();
+  const { signedIn, permissions, disabledAccountId } = useIdentity();
+  const location = useLocation();
+  const showSearch = useBreakpoint('full') && !multiColumn;
+
+  let banner: React.ReactNode;
+
+  if (transientSingleColumn) {
+    banner = (
+      <div className='switch-to-advanced'>
+        {intl.formatMessage(messages.openedInClassicInterface)}{' '}
+        <a
+          href={`/deck${location.pathname}`}
+          className='switch-to-advanced__toggle'
+        >
+          {intl.formatMessage(messages.advancedInterface)}
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <div className='navigation-panel'>
+      <div className='navigation-panel__logo'>
+        <Link to='/' className='column-link column-link--logo'>
+          <WordmarkLogo />
+        </Link>
+      </div>
+
+      {showSearch && <Search singleColumn />}
+
+      {!multiColumn && <ProfileCard />}
+
+      {banner && <div className='navigation-panel__banner'>{banner}</div>}
+
+      <div className='navigation-panel__menu'>
+        {signedIn && (
+          <>
+            {!multiColumn && (
+              <ColumnLink
+                to='/publish'
+                icon='plus'
+                iconComponent={AddIcon}
+                activeIconComponent={AddIcon}
+                text={intl.formatMessage(messages.compose)}
+                className='button navigation-panel__compose-button'
+              />
+            )}
+            <ColumnLink
+              transparent
+              to='/home'
+              icon='home'
+              iconComponent={HomeIcon}
+              activeIconComponent={HomeActiveIcon}
+              text={intl.formatMessage(messages.home)}
+            />
+          </>
+        )}
+
+        {trendsEnabled && (
+          <ColumnLink
+            transparent
+            to='/explore'
+            icon='explore'
+            iconComponent={TrendingUpIcon}
+            text={intl.formatMessage(messages.explore)}
+          />
+        )}
+
+        {(canViewFeed(signedIn, permissions, localLiveFeedAccess) ||
+          canViewFeed(signedIn, permissions, remoteLiveFeedAccess)) && (
+          <ColumnLink
+            transparent
+            to={
+              canViewFeed(signedIn, permissions, localLiveFeedAccess)
+                ? '/public/local'
+                : '/public/remote'
+            }
+            icon='globe'
+            iconComponent={PublicIcon}
+            isActive={isFirehoseActive}
+            text={intl.formatMessage(
+              canViewFeed(signedIn, permissions, localLiveFeedAccess) &&
+                canViewFeed(signedIn, permissions, remoteLiveFeedAccess)
+                ? messages.firehose
+                : messages.firehose_singular,
+            )}
+          />
+        )}
+
+        {signedIn && (
+          <>
+            <NotificationsLink />
+
+            <FollowRequestsLink />
+
+            <hr />
+
+            <ListPanel />
+
+            <FollowedTagsPanel />
+
+            <ColumnLink
+              transparent
+              to='/favourites'
+              icon='star'
+              iconComponent={StarIcon}
+              activeIconComponent={StarActiveIcon}
+              text={intl.formatMessage(messages.favourites)}
+            />
+            <ColumnLink
+              transparent
+              to='/bookmarks'
+              icon='bookmarks'
+              iconComponent={BookmarksIcon}
+              activeIconComponent={BookmarksActiveIcon}
+              text={intl.formatMessage(messages.bookmarks)}
+            />
+            <ColumnLink
+              transparent
+              to='/conversations'
+              icon='at'
+              iconComponent={AlternateEmailIcon}
+              text={intl.formatMessage(messages.direct)}
+            />
+
+            <hr />
+
+            <ColumnLink
+              transparent
+              href='/settings/preferences'
+              icon='cog'
+              iconComponent={SettingsIcon}
+              text={intl.formatMessage(messages.preferences)}
+            />
+
+            <MoreLink />
+          </>
+        )}
+
+        <div className='navigation-panel__legal'>
+          <ColumnLink
+            transparent
+            to='/about'
+            icon='ellipsis-h'
+            iconComponent={InfoIcon}
+            text={intl.formatMessage(messages.about)}
+          />
+        </div>
+
+        {!signedIn && (
+          <div className='navigation-panel__sign-in-banner'>
+            <hr />
+
+            {disabledAccountId ? <DisabledAccountBanner /> : <SignInBanner />}
+          </div>
+        )}
+      </div>
+
+      <div className='flex-spacer' />
+
+      <Trends />
+    </div>
+  );
+};
+
+export const CollapsibleNavigationPanel: React.FC = () => {
   const open = useAppSelector((state) => state.navigation.open);
   const dispatch = useAppDispatch();
   const openable = useBreakpoint('openable');
-  const showSearch = useBreakpoint('full');
   const location = useLocation();
   const overlayRef = useRef<HTMLDivElement | null>(null);
 
@@ -275,6 +451,7 @@ export const NavigationPanel: React.FC = () => {
       filterTaps: true,
       bounds: isLtrDir ? { left: 0 } : { right: 0 },
       rubberband: true,
+      enabled: openable,
     },
   );
 
@@ -293,22 +470,6 @@ export const NavigationPanel: React.FC = () => {
     }
   }, [open]);
 
-  let banner: React.ReactNode;
-
-  if (transientSingleColumn) {
-    banner = (
-      <div className='switch-to-advanced'>
-        {intl.formatMessage(messages.openedInClassicInterface)}{' '}
-        <a
-          href={`/deck${location.pathname}`}
-          className='switch-to-advanced__toggle'
-        >
-          {intl.formatMessage(messages.advancedInterface)}
-        </a>
-      </div>
-    );
-  }
-
   const showOverlay = openable && open;
 
   return (
@@ -324,139 +485,7 @@ export const NavigationPanel: React.FC = () => {
         {...bind()}
         style={openable ? { x } : undefined}
       >
-        <div className='navigation-panel'>
-          <div className='navigation-panel__logo'>
-            <Link to='/' className='column-link column-link--logo'>
-              <WordmarkLogo />
-            </Link>
-          </div>
-
-          {showSearch && <Search singleColumn />}
-
-          <ProfileCard />
-
-          {banner && <div className='navigation-panel__banner'>{banner}</div>}
-
-          <div className='navigation-panel__menu'>
-            {signedIn && (
-              <>
-                <ColumnLink
-                  to='/publish'
-                  icon='plus'
-                  iconComponent={AddIcon}
-                  activeIconComponent={AddIcon}
-                  text={intl.formatMessage(messages.compose)}
-                  className='button navigation-panel__compose-button'
-                />
-                <ColumnLink
-                  transparent
-                  to='/home'
-                  icon='home'
-                  iconComponent={HomeIcon}
-                  activeIconComponent={HomeActiveIcon}
-                  text={intl.formatMessage(messages.home)}
-                />
-              </>
-            )}
-
-            {trendsEnabled && (
-              <ColumnLink
-                transparent
-                to='/explore'
-                icon='explore'
-                iconComponent={TrendingUpIcon}
-                text={intl.formatMessage(messages.explore)}
-              />
-            )}
-
-            {(signedIn || timelinePreview) && (
-              <ColumnLink
-                transparent
-                to='/public/local'
-                icon='globe'
-                iconComponent={PublicIcon}
-                isActive={isFirehoseActive}
-                text={intl.formatMessage(messages.firehose)}
-              />
-            )}
-
-            {signedIn && (
-              <>
-                <NotificationsLink />
-
-                <FollowRequestsLink />
-
-                <hr />
-
-                <ListPanel />
-
-                <FollowedTagsPanel />
-
-                <ColumnLink
-                  transparent
-                  to='/favourites'
-                  icon='star'
-                  iconComponent={StarIcon}
-                  activeIconComponent={StarActiveIcon}
-                  text={intl.formatMessage(messages.favourites)}
-                />
-                <ColumnLink
-                  transparent
-                  to='/bookmarks'
-                  icon='bookmarks'
-                  iconComponent={BookmarksIcon}
-                  activeIconComponent={BookmarksActiveIcon}
-                  text={intl.formatMessage(messages.bookmarks)}
-                />
-                <ColumnLink
-                  transparent
-                  to='/conversations'
-                  icon='at'
-                  iconComponent={AlternateEmailIcon}
-                  text={intl.formatMessage(messages.direct)}
-                />
-
-                <hr />
-
-                <ColumnLink
-                  transparent
-                  href='/settings/preferences'
-                  icon='cog'
-                  iconComponent={SettingsIcon}
-                  text={intl.formatMessage(messages.preferences)}
-                />
-
-                <MoreLink />
-              </>
-            )}
-
-            <div className='navigation-panel__legal'>
-              <ColumnLink
-                transparent
-                to='/about'
-                icon='ellipsis-h'
-                iconComponent={InfoIcon}
-                text={intl.formatMessage(messages.about)}
-              />
-            </div>
-
-            {!signedIn && (
-              <div className='navigation-panel__sign-in-banner'>
-                <hr />
-
-                {disabledAccountId ? (
-                  <DisabledAccountBanner />
-                ) : (
-                  <SignInBanner />
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className='flex-spacer' />
-
-          <Trends />
-        </div>
+        <NavigationPanel />
       </animated.div>
     </div>
   );
