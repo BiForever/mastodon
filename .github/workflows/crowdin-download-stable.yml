@@ -9,7 +9,7 @@ permissions:
 jobs:
   download-translations-stable:
     runs-on: ubuntu-latest
-    if: github.repository == 'BiForever/mastodon'
+    if: github.repository == 'bifriends/mastodon' #'mastodon/mastodon'
 
     steps:
       - name: Checkout

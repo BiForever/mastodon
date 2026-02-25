@@ -19,7 +19,7 @@ on:
 jobs:
   upload-translations:
     runs-on: ubuntu-latest
-    if: github.repository == 'BiForever/mastodon'
+    if: github.repository == 'bifriends/mastodon' #'mastodon/mastodon'
 
     steps:
       - name: Checkout
